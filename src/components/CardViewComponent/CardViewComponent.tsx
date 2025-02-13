@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
 
 import styles from './CardViewComponent.style'
-import Pokemon from '@/src/interfaces/PokemonInterface';
+import { Props } from './CardViewComponent.config';
 
 const CardViewComponent = (props: Props) => {
   const { pokemon: { name, types }} = props;
@@ -31,10 +31,6 @@ const CardViewComponent = (props: Props) => {
       </View>
     </View>
   );
-}
-
-interface Props {
-  pokemon: Pokemon
 }
 
 export default CardViewComponent;
