@@ -1,30 +1,40 @@
 import { View, Text } from 'react-native';
 
 import styles from './CardViewComponent.style'
+import Pokemon from '@/src/interfaces/PokemonInterface';
 
-const CardViewComponent = () => {
+const CardViewComponent = (props: Props) => {
+  const { pokemon: { name, types }} = props;
+
+  const renderType = (type: string, index: number) => {
+    return (
+      <View style={styles.typeContainer} key={index}>
+          <Text style={styles.typeText}>
+            {type}
+          </Text>
+        </View>
+    );
+  }
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.infoContainer}>
         <Text style={styles.nameText}>
-          Bulbasaur
+          {name}
         </Text>
-        <View style={styles.typeContainer}>
-          <Text style={styles.typeText}>
-            Grass
-          </Text>
-        </View>
-        <View style={styles.typeContainer}>
-          <Text style={styles.typeText}>
-            Poison
-          </Text>
-        </View>
+        <>
+          { types.map((type, index) => renderType(type, index)) }
+        </>
       </View>
       <View>
         <View style={styles.imageContainer}></View>
       </View>
     </View>
   );
+}
+
+interface Props {
+  pokemon: Pokemon
 }
 
 export default CardViewComponent;
