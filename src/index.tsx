@@ -5,7 +5,7 @@ import PokemonListScreen from './screens/PokemonListScreen';
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <PokemonListScreen />
     </SafeAreaView>
   );

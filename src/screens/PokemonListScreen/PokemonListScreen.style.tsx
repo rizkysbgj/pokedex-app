@@ -1,19 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 10
+  listContainer: {
+    flex: 1
   },
   cardContainer: {
-    backgroundColor: '#43C5A6',
-    width: 170,
-    height: 120,
-    borderRadius: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly'
+    marginBottom: 20
+  },
+  container: {
+    padding: 10,
+    flex: 1,
+    backgroundColor: '#FFFFFF'
   },
   infoContainer: {
     width: 70,
@@ -39,6 +36,22 @@ const styles = StyleSheet.create({
   },
   typeText: {
     color: '#DBF8F3'
+  },
+  titleText: {
+    fontWeight: '900',
+    fontSize: 30
+  },
+  titleContainer: {
+    marginBottom: 40
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20
+  },
+  buttonImage: {
+    height: 40,
+    width: 40
   }
 });
 
