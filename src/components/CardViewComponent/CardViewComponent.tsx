@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
-import styles from './CardViewComponent.style'
+import { styles, elementCard } from './CardViewComponent.style'
 import { Props } from './CardViewComponent.config';
 
 const CardViewComponent = (props: Props) => {
-  const { pokemon: { name, types }} = props;
+  const { pokemon: { id, name, types }} = props;
+  const imageSource = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
   const renderType = (type: string, index: number) => {
     return (
@@ -17,7 +18,7 @@ const CardViewComponent = (props: Props) => {
   }
 
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, elementCard(types[0]).card]}>
       <View style={styles.infoContainer}>
         <Text style={styles.nameText}>
           {name}
@@ -27,7 +28,10 @@ const CardViewComponent = (props: Props) => {
         </>
       </View>
       <View>
-        <View style={styles.imageContainer}></View>
+        <Image
+          style={styles.imageContainer}
+          source={{uri: imageSource}}
+        />
       </View>
     </View>
   );

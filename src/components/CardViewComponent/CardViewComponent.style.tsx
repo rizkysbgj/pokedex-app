@@ -1,3 +1,4 @@
+import { Colors } from '@/src/constants/Colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -7,7 +8,6 @@ const styles = StyleSheet.create({
     margin: 10
   },
   cardContainer: {
-    backgroundColor: '#43C5A6',
     width: 170,
     height: 120,
     borderRadius: 20,
@@ -16,11 +16,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly'
   },
   infoContainer: {
-    width: 70,
-    height: 70
+    width: 85,
+    height: 70,
+    marginLeft: 10
   },
   typeContainer: {
-    backgroundColor: '#5EDFC6',
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
     alignItems: 'center',
     borderRadius: 30,
     alignSelf: 'flex-start',
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
     marginBottom: 7
   },
   imageContainer: {
-    backgroundColor: 'yellow',
     width: 70,
     height: 70
   },
@@ -42,4 +42,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default styles;
+const elementCard = (element: string) => {
+  const lowerCasedElement = element.toLowerCase();
+  return StyleSheet.create({
+    card: {
+      backgroundColor: Colors.pokemonType[lowerCasedElement]
+   }
+  });
+}
+
+export { styles, elementCard };
