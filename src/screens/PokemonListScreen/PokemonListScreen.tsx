@@ -7,7 +7,8 @@ import icons from '@/src/assets/icons';
 import { useEffect, useState } from 'react';
 import { fetchPokemon } from './PokemonListScreenHandler';
 
-const PokemonListScreen = () => {
+const PokemonListScreen = (props) => {
+  const { navigation: { navigate } } = props;
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [isHasNextData, setIsHasNextData] = useState(false);
   const [offset, setOffset] = useState(0);
@@ -30,8 +31,11 @@ const PokemonListScreen = () => {
   }, []);
 
   const renderPokemonCard = (pokemon: Pokemon) => {
+    const { id } = pokemon;
     return(
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigate('PokemonDetail', {id})}
+      >
         <View style={styles.cardContainer}>
           <CardViewComponent pokemon={pokemon} />
         </View>
